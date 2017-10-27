@@ -22,3 +22,22 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.stripeButton {
+  font-size: 1.5rem;
+  height: 50px;
+  background-color: RGBA(255, 118, 35, 1.00);
+  color: white;
+  padding: 7px 15px;
+  border-radius: 7px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.stripeButton.disabled {
+  background-color: unset;
+  color: RGBA(255, 118, 35, 1.00);
+  cursor: unset;
+}
