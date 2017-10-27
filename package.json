@@ -2,7 +2,7 @@
   "name": "stripe-checkout",
   "version": "0.1.0",
   "main": "server/server.js",
-  "proxy": "http://localhost:3009",
+  "proxy": "http://localhost:3012",
   "private": true,
   "dependencies": {
     "axios": "^0.17.0",
