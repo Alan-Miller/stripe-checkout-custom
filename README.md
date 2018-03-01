@@ -15,3 +15,5 @@ Example of Stripe Checkout (with custom button) in React. Uses ```<script>``` ta
 Tech:
 * React
 * Stripe Checkout
+
+Stripe Checkout Custom docs: https://stripe.com/docs/checkout#integration-custom
