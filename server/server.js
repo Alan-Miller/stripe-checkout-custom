@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 app.post('/api/payment', (req, res, next) => {
     const amountArray = req.body.amount.toString().split('');
     const convertedAmt = joesPennyFunction(amountArray);
+    console.log("AMT", typeof convertedAmt)
     const charge = stripe.charges.create(
         {
             amount: convertedAmt,
@@ -27,4 +28,4 @@ app.post('/api/payment', (req, res, next) => {
     )
 });
 
-app.listen(PORT, _ => { console.log(`Listening on ${PORT}.`)});
+app.listen(PORT, () => { console.log(`Listening on ${PORT}.`)});

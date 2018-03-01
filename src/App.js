@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import axios from 'axios';
 import logo from'./imgs/logo.svg';
@@ -29,9 +30,10 @@ class App extends Component {
   }
 
   onToken = token => {
+    console.log('token', token)
     token.card = void 0;
     this.setState({token});
-    const amount = 999;
+    const amount = 1111;
     axios.post('/api/payment', {token, amount})
     .then(response => { console.log('payment response', response) });
   } 
