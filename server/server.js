@@ -1,22 +1,18 @@
 require('dotenv').config();
 const express = require('express')
     , bodyParser = require('body-parser')
-    , cors = require('cors')
-    , stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
-    , { joesPennyFunction } = require('./pennyConverter')
-    , PORT = process.env.PORT
+    , { SERVER_PORT, STRIPE_PRIVATE_KEY } = process.env
+    , stripe = require('stripe')(STRIPE_PRIVATE_KEY)
     , app = module.exports = express();
 
-app.use(cors());
 app.use(bodyParser.json());
 
 app.post('/api/payment', (req, res, next) => {
-    const amountArray = req.body.amount.toString().split('');
-    const convertedAmt = joesPennyFunction(amountArray);
-    console.log("AMT", typeof convertedAmt)
+    // If needed, convert req.body.amount to pennies
+
     const charge = stripe.charges.create(
         {
-            amount: convertedAmt,
+            amount: req.body.amount,
             currency: 'usd',
             source: req.body.token.id,
             description: 'Stripe Checkout test charge'
@@ -28,4 +24,4 @@ app.post('/api/payment', (req, res, next) => {
     )
 });
 
-app.listen(PORT, () => { console.log(`Listening on ${PORT}.`)});
+app.listen(SERVER_PORT, () => { console.log(`Listening on ${SERVER_PORT}.`) });

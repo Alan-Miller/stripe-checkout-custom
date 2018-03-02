@@ -16,3 +16,4 @@ module.exports = {
   }
 
 }
+// Joe Blank's penny converter function
