@@ -1,7 +1,7 @@
 {
   "name": "stripe-checkout",
   "version": "0.1.0",
-  "main": "server/server.js",
+  "main": "server/index.js",
   "proxy": "http://localhost:3012",
   "private": true,
   "dependencies": {
